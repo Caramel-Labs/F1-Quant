@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import HelmetWithOrbits from '../../components/HelmetWithOrbits';
 import JoinWaitlistDialog from '../../components/JoinWaitlistDialog';
 
 function Home() {
@@ -32,15 +33,9 @@ function Home() {
             </header>
 
             {/* Hero Section */}
-            <section className="flex flex-col-reverse lg:flex-row items-center justify-between px-6 py-16 gap-10">
-                <div className="flex-1">
-                    <img
-                        src="/f1-car-top.png"
-                        alt="Formula 1 Car Top Down View"
-                        width={500}
-                        height={300}
-                    />
-                </div>
+            <section className="flex flex-col-reverse lg:flex-row items-center justify-between px-6 pb-16 pt-4 gap-10">
+                <HelmetWithOrbits></HelmetWithOrbits>
+
                 <div className="flex-1 space-y-6 text-center lg:text-left">
                     <h1 className="text-6xl font-bold leading-tight">
                         Precision <span className="text-red-500">F1</span>{' '}
