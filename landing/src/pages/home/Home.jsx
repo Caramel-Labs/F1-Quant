@@ -1,10 +1,25 @@
+import { useEffect, useState } from 'react';
 import JoinWaitlistDialog from '../../components/JoinWaitlistDialog';
 
 function Home() {
+    const [scrolled, setScrolled] = useState(false);
+
+    useEffect(() => {
+        const onScroll = () => setScrolled(window.scrollY > 10);
+        window.addEventListener('scroll', onScroll);
+        return () => window.removeEventListener('scroll', onScroll);
+    }, []);
+
     return (
-        <main className="min-h-screen bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100">
+        <main className="font-inter min-h-screen bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100">
             {/* Header */}
-            <header className="flex justify-between items-center px-6 py-4 border-b border-zinc-200 dark:border-zinc-800">
+            <header
+                className={`sticky top-0 z-50 flex justify-between items-center px-6 py-4 transition-all duration-300 ${
+                    scrolled
+                        ? 'backdrop-blur bg-white/70 dark:bg-zinc-900/40 shadow-sm'
+                        : 'bg-transparent'
+                }`}
+            >
                 <div>
                     <img
                         src="/logo.png"
@@ -27,9 +42,11 @@ function Home() {
                     />
                 </div>
                 <div className="flex-1 space-y-6 text-center lg:text-left">
-                    <h1 className="text-4xl font-bold leading-tight">
+                    <h1 className="text-6xl font-bold leading-tight">
                         Precision <span className="text-red-500">F1</span>{' '}
-                        Analytics for Data-Driven Stakers
+                        Analytics
+                        <br />
+                        For Data-Driven Stakers
                     </h1>
                     <p className="text-lg text-zinc-600 dark:text-zinc-400">
                         Unlock the power of predictive analytics and stay ahead
@@ -41,7 +58,7 @@ function Home() {
 
             {/* Features Section */}
             <section className="text-center px-6 py-16">
-                <h2 className="text-2xl font-semibold mb-4">
+                <h2 className="text-3xl font-semibold mb-4">
                     Intelligent Financial Staking
                 </h2>
                 <p className="text-zinc-600 dark:text-zinc-400 max-w-xl mx-auto">
