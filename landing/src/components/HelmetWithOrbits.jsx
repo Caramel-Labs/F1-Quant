@@ -1,7 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 function HelmetWithOrbits() {
-    const [dotPositions, setDotPositions] = useState({});
+    const requestRef = useRef();
+    const previousTimeRef = useRef();
+    const [orbitAngles, setOrbitAngles] = useState({});
 
     const orbits = [
         {
@@ -9,7 +11,7 @@ function HelmetWithOrbits() {
             dotCount: 12,
             color: 'bg-red-500',
             size: 3,
-            speed: 1,
+            speed: 0.6,
             reverse: false,
             opacity: 0.8,
             pathOpacity: 0.1,
@@ -19,7 +21,7 @@ function HelmetWithOrbits() {
             dotCount: 16,
             color: 'bg-red-400',
             size: 2,
-            speed: 1.3,
+            speed: 0.8,
             reverse: true,
             opacity: 0.7,
             pathOpacity: 0.08,
@@ -29,40 +31,61 @@ function HelmetWithOrbits() {
             dotCount: 24,
             color: 'bg-red-300',
             size: 2.5,
-            speed: 0.7,
+            speed: 0.4,
             reverse: false,
             opacity: 0.6,
             pathOpacity: 0.06,
         },
     ];
 
+    // Initialize orbit angles once
     useEffect(() => {
-        const interval = setInterval(() => {
-            setDotPositions((prev) => {
-                const newPositions = { ...prev };
-                orbits.forEach((orbit, i) => {
-                    if (!newPositions[i]) {
-                        newPositions[i] = Array(orbit.dotCount)
-                            .fill()
-                            .map(
-                                (_, idx) =>
-                                    (idx / orbit.dotCount) * 360 +
-                                    Math.random() * 20
-                            );
-                    } else {
-                        newPositions[i] = newPositions[i].map(
-                            (angle) =>
-                                (angle +
-                                    orbit.speed *
-                                        (orbit.reverse ? -0.3 : 0.3)) %
-                                360
-                        );
-                    }
+        const initialAngles = {};
+        orbits.forEach((orbit, orbitIndex) => {
+            initialAngles[orbitIndex] = Array(orbit.dotCount)
+                .fill()
+                .map((_, i) => {
+                    // Distribute dots evenly around circle with slight randomization
+                    return (i / orbit.dotCount) * 360 + Math.random() * 15;
                 });
-                return newPositions;
+        });
+        setOrbitAngles(initialAngles);
+    }, []);
+
+    const animate = (time) => {
+        if (previousTimeRef.current !== undefined) {
+            const deltaTime = time - previousTimeRef.current;
+
+            // Update all orbit angles based on time elapsed
+            setOrbitAngles((prevAngles) => {
+                const newAngles = { ...prevAngles };
+                Object.keys(prevAngles).forEach((orbitIndex) => {
+                    const orbit = orbits[orbitIndex];
+                    newAngles[orbitIndex] = prevAngles[orbitIndex].map(
+                        (angle) => {
+                            // Smoother animation by using small time-based increments
+                            return (
+                                (angle +
+                                    deltaTime *
+                                        0.01 *
+                                        orbit.speed *
+                                        (orbit.reverse ? -1 : 1)) %
+                                360
+                            );
+                        }
+                    );
+                });
+                return newAngles;
             });
-        }, 16);
-        return () => clearInterval(interval);
+        }
+
+        previousTimeRef.current = time;
+        requestRef.current = requestAnimationFrame(animate);
+    };
+
+    useEffect(() => {
+        requestRef.current = requestAnimationFrame(animate);
+        return () => cancelAnimationFrame(requestRef.current);
     }, []);
 
     return (
@@ -84,8 +107,9 @@ function HelmetWithOrbits() {
             ))}
 
             {/* Moving Dots */}
-            {orbits.map((orbit, orbitIndex) =>
-                dotPositions[orbitIndex]?.map((angle, i) => (
+            {Object.keys(orbitAngles).map((orbitIndex) => {
+                const orbit = orbits[orbitIndex];
+                return orbitAngles[orbitIndex].map((angle, i) => (
                     <div
                         key={`orbit-${orbitIndex}-dot-${i}`}
                         className={`absolute rounded-full ${orbit.color} z-0`}
@@ -93,12 +117,12 @@ function HelmetWithOrbits() {
                             width: orbit.size * 4,
                             height: orbit.size * 4,
                             opacity: orbit.opacity,
-                            transform: `rotate(${angle}deg) translateX(${orbit.radius}px) translateZ(0)`,
-                            transition: 'transform 0.08s linear',
+                            transform: `rotate(${angle}deg) translateX(${orbit.radius}px)`,
+                            willChange: 'transform',
                         }}
                     />
-                ))
-            )}
+                ));
+            })}
 
             {/* Helmet Image - Slightly Smaller */}
             <img

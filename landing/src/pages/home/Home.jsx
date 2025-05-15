@@ -33,7 +33,7 @@ function Home() {
             </header>
 
             {/* Hero Section */}
-            <section className="flex flex-col-reverse lg:flex-row items-center justify-between px-6 pb-16 pt-4 gap-10">
+            <section className="flex flex-col-reverse lg:flex-row items-center justify-between px-6 py-4 gap-10">
                 <HelmetWithOrbits></HelmetWithOrbits>
 
                 <div className="flex-1 space-y-6 text-center lg:text-left">
@@ -63,21 +63,46 @@ function Home() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
                     {[
-                        'Predictive Models',
-                        'Real-Time Updates',
-                        'Race Insights',
-                        'Stake Management',
-                        'Performance Tracking',
-                        'Odds Comparison',
+                        {
+                            title: 'Predictive Models',
+                            description:
+                                'Forecast race outcomes with precision using machine learning.',
+                        },
+                        {
+                            title: 'Real-Time Updates',
+                            description:
+                                'Get instant data as it happens — don’t miss a beat.',
+                        },
+                        {
+                            title: 'Race Insights',
+                            description:
+                                'Access deep analytics about track conditions and driver performance.',
+                        },
+                        {
+                            title: 'Stake Management',
+                            description:
+                                'Balance your bankroll smartly with AI-assisted suggestions.',
+                        },
+                        {
+                            title: 'Performance Tracking',
+                            description:
+                                'Visualize your betting history and fine-tune your strategy.',
+                        },
+                        {
+                            title: 'Odds Comparison',
+                            description:
+                                'Compare live odds across platforms for optimal value bets.',
+                        },
                     ].map((feature) => (
                         <div
-                            key={feature}
+                            key={feature.title}
                             className="border border-zinc-200 dark:border-zinc-800 p-6 rounded-xl bg-white dark:bg-zinc-900 shadow-sm"
                         >
-                            <h3 className="text-lg font-medium">{feature}</h3>
+                            <h3 className="text-lg font-medium">
+                                {feature.title}
+                            </h3>
                             <p className="text-sm text-zinc-600 dark:text-zinc-400 mt-2">
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit.
+                                {feature.description}
                             </p>
                         </div>
                     ))}
