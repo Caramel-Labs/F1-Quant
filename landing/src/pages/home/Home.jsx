@@ -15,7 +15,7 @@ function Home() {
         <main className="font-custom min-h-screen bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100">
             {/* Header */}
             <header
-                className={`sticky top-0 z-50 flex justify-between items-center px-6 py-4 transition-all duration-300 ${
+                className={`sticky top-0 z-30 flex justify-between items-center px-6 py-4 transition-all duration-300 ${
                     scrolled
                         ? 'backdrop-blur bg-white/70 dark:bg-zinc-900/40 shadow-sm'
                         : 'bg-transparent'
@@ -132,7 +132,7 @@ function Home() {
                 </div>
                 <p className="mt-4 text-zinc-500 dark:text-zinc-400">
                     A Product of{' '}
-                    <a href="#" className="underline">
+                    <a href="https://x.com/Caramel_HQ" className="underline">
                         Caramel Labs
                     </a>
                     .
