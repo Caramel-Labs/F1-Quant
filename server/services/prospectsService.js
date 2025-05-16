@@ -1,5 +1,6 @@
 import { db } from '../config.js';
 import { isValidEmail } from '../utils/validator.js';
+import { sendWaitlistConfirmationEmail } from '../utils/emailTemplate.js';
 
 export async function addProspect({ name, email }) {
   if (!name || !email || !isValidEmail(email)) {
@@ -12,6 +13,12 @@ export async function addProspect({ name, email }) {
       `INSERT INTO prospects (name, email) VALUES ($1, $2) RETURNING id, name, email, created_at`,
       [name.trim(), email.toLowerCase()]
     );
+    // Send confirmation email
+    try {
+      await sendWaitlistConfirmationEmail(name.trim(), email.toLowerCase());
+    } catch (emailError) {
+      console.error('Failed to send confirmation email:', emailError);
+    }
     return rows[0];
   } catch (e) {
     if (e.code === '23505') {
