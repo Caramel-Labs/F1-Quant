@@ -12,7 +12,7 @@ function Home() {
     }, []);
 
     return (
-        <main className="font-inter min-h-screen bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100">
+        <main className="font-custom min-h-screen bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100">
             {/* Header */}
             <header
                 className={`sticky top-0 z-50 flex justify-between items-center px-6 py-4 transition-all duration-300 ${
