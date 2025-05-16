@@ -25,7 +25,7 @@ function Home() {
                     <img
                         src="/logo.png"
                         alt="QuantF1 Logo"
-                        className="w-24 sm:w-32 h-auto" // More responsive sizing
+                        className="w-24 sm:w-32 h-auto"
                     />
                 </div>
                 <JoinWaitlistDialog triggerClassName="bg-red-500 text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded hover:bg-red-600 transition text-sm sm:text-base" />
