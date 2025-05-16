@@ -1,6 +1,6 @@
 import { db } from '../config.js';
 import { isValidEmail } from '../utils/validator.js';
-import { sendWaitlistConfirmationEmail } from '../utils/emailService.js';
+import { sendWaitlistConfirmationEmail } from '../utils/emailTemplate.js';
 
 export async function addProspect({ name, email }) {
   if (!name || !email || !isValidEmail(email)) {
