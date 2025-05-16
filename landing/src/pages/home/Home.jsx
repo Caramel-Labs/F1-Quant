@@ -37,7 +37,7 @@ function Home() {
                 <HelmetWithOrbits></HelmetWithOrbits>
 
                 <div className="flex-1 space-y-6 text-center lg:text-left">
-                    <h1 className="text-6xl font-bold leading-tight">
+                    <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
                         Precision <span className="text-red-500">F1</span>{' '}
                         Analytics
                         <br />

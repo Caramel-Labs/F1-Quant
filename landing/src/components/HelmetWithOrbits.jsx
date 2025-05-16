@@ -97,7 +97,7 @@ function HelmetWithOrbits() {
             {orbits.map((orbit, i) => (
                 <div
                     key={`orbit-path-${i}`}
-                    className="absolute rounded-full border z-0"
+                    className="absolute rounded-full border -z-10"
                     style={{
                         width: orbit.radius * 2,
                         height: orbit.radius * 2,
