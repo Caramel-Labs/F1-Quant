@@ -32,7 +32,7 @@ function JoinWaitlistDialog({
                             <input
                                 ref={firstNameRef}
                                 type="text"
-                                placeholder="First Name"
+                                placeholder="First name"
                                 className="w-full p-2 border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 placeholder-zinc-500 dark:placeholder-zinc-400"
                                 // Explicitly ensure no auto-focus
                                 autoFocus={false}
@@ -45,7 +45,7 @@ function JoinWaitlistDialog({
                         <input
                             ref={emailRef}
                             type="email"
-                            placeholder="you@example.com"
+                            placeholder="Email address"
                             className="w-full p-2 border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 placeholder-zinc-500 dark:placeholder-zinc-400"
                             // Explicitly ensure no auto-focus
                             autoFocus={false}
