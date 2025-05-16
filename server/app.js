@@ -1,6 +1,7 @@
 import express from 'express';
 import prospectsRoute from './routes/prospectsRoute.js';
 import dotenv from 'dotenv';
+import cors from 'cors';
 
 dotenv.config();
 
