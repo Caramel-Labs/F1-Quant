@@ -20,7 +20,7 @@ export async function sendWaitlistConfirmationEmail(name, email) {
         address: process.env.EMAIL_FROM_ADDRESS
       },
       to: email,
-      subject: 'Thanks for joining QuantF1!',
+      subject: 'Thanks for joining F1 Quant!',
       replyTo: process.env.CONTACT_EMAIL || process.env.EMAIL_FROM_ADDRESS,
       headers: {
         'List-Unsubscribe': `<mailto:${process.env.CONTACT_EMAIL || process.env.EMAIL_FROM_ADDRESS}?subject=unsubscribe>, <${process.env.UNSUBSCRIBE_LINK || '#'}>`,
@@ -33,13 +33,13 @@ export async function sendWaitlistConfirmationEmail(name, email) {
         <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Welcome to QuantF1</title>
+          <title>Welcome to F1 Quant</title>
         </head>
         <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
           <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse: collapse;">
             <tr>
               <td style="padding: 0;">
-                <h2 style="color: #333; margin-bottom: 20px;">Welcome to QuantF1, ${sanitizedName}!</h2>
+                <h2 style="color: #333; margin-bottom: 20px;">Welcome to F1 Quant, ${sanitizedName}!</h2>
                 
                 <p>Thank you for joining our waitlist. We're excited to have you on board as one of our early supporters.</p>
                 
@@ -63,7 +63,7 @@ export async function sendWaitlistConfirmationEmail(name, email) {
                 <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee; font-size: 12px; color: #666;">
                   <p>${process.env.COMPANY_NAME}</p>
                   
-                  <p>This email was sent to ${email}. If you didn't sign up for the QuantF1 waitlist, please disregard this message.</p>
+                  <p>This email was sent to ${email}. If you didn't sign up for the F1 Quant waitlist, please disregard this message.</p>
                   
                   <p><a href="${process.env.UNSUBSCRIBE_LINK}" style="color: #666;">Unsubscribe</a> from future communications.</p>
                 </div>
@@ -74,7 +74,7 @@ export async function sendWaitlistConfirmationEmail(name, email) {
         </html>
       `,
       text: `
-Welcome to QuantF1, ${sanitizedName}!
+Welcome to F1 Quant, ${sanitizedName}!
 
 Thank you for joining our waitlist. We're excited to have you on board as one of our early supporters.
 
@@ -88,7 +88,7 @@ We're working hard to create something special and can't wait to share it with y
 If you have any questions in the meantime, feel free to reach out to us at ${process.env.CONTACT_EMAIL}.
 
 Best regards,
-The QuantF1 Team
+The F1 Quant Team
 
 ---
 ${process.env.COMPANY_NAME}
