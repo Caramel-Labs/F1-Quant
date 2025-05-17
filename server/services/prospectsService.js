@@ -1,4 +1,4 @@
-import { db } from '../config.js';
+import * as model from '../models/prospectModel.js';
 import { isValidEmail } from '../utils/validator.js';
 import { sendWaitlistConfirmationEmail } from '../utils/emailTemplate.js';
 
@@ -8,18 +8,17 @@ export async function addProspect({ name, email }) {
     err.status = 400;
     throw err;
   }
+
   try {
-    const { rows } = await db.query(
-      `INSERT INTO prospects (name, email) VALUES ($1, $2) RETURNING id, name, email, created_at`,
-      [name.trim(), email.toLowerCase()]
-    );
-    // Send confirmation email
+    const prospect = await model.insertProspect(name, email);
+
     try {
       await sendWaitlistConfirmationEmail(name.trim(), email.toLowerCase());
     } catch (emailError) {
       console.error('Failed to send confirmation email:', emailError);
     }
-    return rows[0];
+
+    return prospect;
   } catch (e) {
     if (e.code === '23505') {
       const err409 = new Error('Email already registered');
@@ -31,8 +30,5 @@ export async function addProspect({ name, email }) {
 }
 
 export async function getAllProspects() {
-  const { rows } = await db.query(
-    `SELECT id, name, email, created_at FROM prospects ORDER BY created_at DESC`
-  );
-  return rows;
+  return await model.getAllProspects();
 }
