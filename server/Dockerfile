@@ -4,14 +4,11 @@ FROM node:20
 # Set working directory
 WORKDIR /usr/src/app
 
-# Copy dependency files
-COPY package*.json ./
+# Copy everything inside ./server into the container
+COPY . .
 
 # Install only production dependencies
-RUN npm install --production
-
-# Copy rest of the application
-COPY . .
+RUN npm install
 
 # Expose app port
 EXPOSE 4000
