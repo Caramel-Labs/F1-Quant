@@ -5,7 +5,7 @@ FROM node:20
 WORKDIR /usr/src/app
 
 # Copy everything inside ./server into the container
-COPY . .
+COPY server/ .
 
 # Install only production dependencies
 RUN npm install
