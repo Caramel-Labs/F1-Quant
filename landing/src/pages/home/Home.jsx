@@ -43,8 +43,8 @@ function Home() {
                         For Data-Driven Stakers
                     </h1>
                     <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400">
-                        Unlock the power of predictive analytics and stay ahead
-                        of every race.
+                        Turn data into strategy with cutting-edge analytics
+                        built for high-stakes F1 betting.
                     </p>
                     <div className="flex justify-center lg:justify-start">
                         <JoinWaitlistDialog triggerClassName="bg-red-500 text-white px-4 py-1.5 sm:px-6 sm:py-2 rounded hover:bg-red-600 transition text-sm sm:text-base" />
@@ -55,44 +55,46 @@ function Home() {
             {/* Features Section */}
             <section className="text-center px-4 sm:px-6 py-12 sm:py-16">
                 <h2 className="text-2xl sm:text-3xl font-semibold mb-3 sm:mb-4">
-                    Intelligent Financial Staking
+                    Predict Like a Quant. Bet Like a Pro.
                 </h2>
                 <p className="text-zinc-600 dark:text-zinc-400 max-w-xl mx-auto text-sm sm:text-base">
-                    Leverage insights and data modeling to make smarter betting
-                    decisions. Backed by machine learning, tested by time.
+                    F1 Quant transforms race data, market odds, and live
+                    sentiment into powerful betting insights. Think like a
+                    quant, act with confidence, and gain an edge in every Grand
+                    Prix.
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mt-8 sm:mt-10">
                     {[
                         {
-                            title: 'Predictive Models',
+                            title: 'Winner Forecasts',
                             description:
-                                'Forecast race outcomes with precision using machine learning.',
+                                'See the predicted race winner and projected driver rankings for upcoming races.',
                         },
                         {
-                            title: 'Real-Time Updates',
+                            title: 'Live Circuit View',
                             description:
-                                "Get instant data as it happens — don't miss a beat.",
+                                'Track real-time driver positions on a live-rendered race map.',
                         },
                         {
-                            title: 'Race Insights',
+                            title: 'Staking Access',
                             description:
-                                'Access deep analytics about track conditions and driver performance.',
+                                'Explore third-party prediction markets and staking platforms — just a click away.',
                         },
                         {
-                            title: 'Stake Management',
+                            title: 'Sentiment Scanner',
                             description:
-                                'Balance your bankroll smartly with AI-assisted suggestions.',
+                                'Analyze F1 news and social media in real time with quantified sentiment scores.',
                         },
                         {
-                            title: 'Performance Tracking',
+                            title: 'Upcoming Races',
                             description:
-                                'Visualize your betting history and fine-tune your strategy.',
+                                'Stay in the loop with key race dates, locations, and countdowns.',
                         },
                         {
-                            title: 'Odds Comparison',
+                            title: 'Algorithmic Intelligence',
                             description:
-                                'Compare live odds across platforms for optimal value bets.',
+                                'Bet like a quant — leverage data-backed signals to outsmart the market.',
                         },
                     ].map((feature) => (
                         <div
@@ -113,11 +115,11 @@ function Home() {
             {/* Final CTA Section */}
             <section className="text-center px-4 sm:px-6 py-12 sm:py-16 bg-zinc-100 dark:bg-zinc-900">
                 <h2 className="text-xl sm:text-2xl font-semibold mb-3 sm:mb-4">
-                    So, What Are You Waiting For?
+                    Bet Before the Odds Shift
                 </h2>
                 <p className="text-zinc-600 dark:text-zinc-400 mb-4 sm:mb-6 text-sm sm:text-base">
-                    Early birds will get exclusive insights and early access
-                    tools.
+                    In racing and betting, timing is everything. Secure early
+                    access and stay a lap ahead.
                 </p>
                 <JoinWaitlistDialog triggerClassName="bg-red-500 text-white text-sm sm:text-base px-4 py-2 sm:px-6 sm:py-3 rounded hover:bg-red-600 transition mx-auto" />
             </section>
@@ -133,7 +135,7 @@ function Home() {
                 </div>
                 <p className="mt-3 sm:mt-4 text-zinc-500 dark:text-zinc-400 text-sm sm:text-base">
                     A Product of{' '}
-                    <a href="https://x.com/Caramel_HQ" className="underline">
+                    <a href="https://x.com/caramel_labs" className="underline">
                         Caramel Labs
                     </a>
                     .
