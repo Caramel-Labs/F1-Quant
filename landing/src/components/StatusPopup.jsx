@@ -19,28 +19,32 @@ export function StatusPopup({
                         {statusMessage.description}
                     </Dialog.Description>
                     <div className="flex justify-end gap-3">
+                        {/* For error state - show both Close and Try Again */}
                         {status === 'error' && (
+                            <>
+                                <button
+                                    onClick={() => onOpenChange(false)}
+                                    className="px-4 py-2 bg-zinc-200 dark:bg-zinc-700 text-zinc-900 dark:text-zinc-100 rounded-md hover:bg-zinc-300 dark:hover:bg-zinc-600 transition"
+                                >
+                                    Close
+                                </button>
+                                <button
+                                    onClick={onTryAgain}
+                                    className="px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded-md transition"
+                                >
+                                    Try Again
+                                </button>
+                            </>
+                        )}
+                        {/* For success/exists states - show only OK button */}
+                        {(status === 'success' || status === 'exists') && (
                             <button
                                 onClick={() => onOpenChange(false)}
-                                className="px-4 py-2 bg-zinc-200 dark:bg-zinc-700 text-zinc-900 dark:text-zinc-100 rounded-md hover:bg-zinc-300 dark:hover:bg-zinc-600 transition"
+                                className="px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded-md transition"
                             >
-                                Close
+                                OK
                             </button>
                         )}
-                        <button
-                            onClick={() =>
-                                status === 'error' && onTryAgain
-                                    ? onTryAgain()
-                                    : onOpenChange(false)
-                            }
-                            className={`px-4 py-2 ${
-                                status === 'success' || status === 'exists'
-                                    ? 'bg-red-500 hover:bg-red-600'
-                                    : 'bg-red-500 hover:bg-red-600'
-                            } text-white rounded-md transition`}
-                        >
-                            OK
-                        </button>
                     </div>
                 </Dialog.Content>
             </Dialog.Portal>
