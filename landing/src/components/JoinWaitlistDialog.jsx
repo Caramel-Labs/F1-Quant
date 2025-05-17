@@ -37,7 +37,9 @@ function JoinWaitlistDialog({
 
         try {
             const response = await fetch(
-                'https://f1-quant.koyeb.app/api/prospects/addProspect',
+                `${
+                    import.meta.env.VITE_API_BASE_URL
+                }/api/prospects/addProspect`,
                 {
                     method: 'POST',
                     headers: {
