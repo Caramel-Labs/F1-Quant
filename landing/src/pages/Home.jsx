@@ -2,6 +2,7 @@ import Hero from '../components/sections/Hero.jsx';
 import Hook from '../components/sections/Hook.jsx';
 import Header from '../components/sections/Header.jsx';
 import Footer from '../components/sections/Footer.jsx';
+import Partners from '../components/sections/Partners.jsx';
 import Features from '../components/sections/Features.jsx';
 
 function Home() {
@@ -14,6 +15,9 @@ function Home() {
 
             {/* Hero Section */}
             <Hero />
+
+            {/* Partners Section */}
+            <Partners />
 
             {/* Features Section */}
             <Features />

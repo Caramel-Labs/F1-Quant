@@ -86,6 +86,31 @@ export const siteConfig = {
         buttonLabel: 'Join Waitlist',
     },
 
+    // Partners Section
+    partners: {
+        title: 'Data Science Meets the Pit Wall',
+        content:
+            'From neural networks to race telemetry, we blend cutting-edge tools with motorsport data to fuel smarter staking insights.',
+        images: [
+            {
+                src: '/partners/fastf1.png',
+                alt: 'FastF1',
+            },
+            {
+                src: '/partners/tensorflow.png',
+                alt: 'Tensorflow',
+            },
+            {
+                src: '/partners/scikit-learn.png',
+                alt: 'Scikit-learn',
+            },
+            {
+                src: '/partners/pandas.png',
+                alt: 'Pandas',
+            },
+        ],
+    },
+
     // Features Section
     features: {
         title: 'Predict Like a Quant. Bet Like a Pro.',
