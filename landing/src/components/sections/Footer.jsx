@@ -8,8 +8,8 @@ function Footer() {
             {/* Promo Image */}
             <div className="w-full px-4 sm:px-0 py-6 sm:py-8">
                 <img
-                    src="/car-side.png"
-                    alt="Formula 1 Car Side View"
+                    src={siteConfig.footer.imgSrc}
+                    alt={siteConfig.footer.imgAlt}
                     className="max-w-full h-auto mx-auto px-4"
                 />
             </div>

@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
-import siteConfig from '../config.jsx';
+import { siteConfig, componentConfig } from '../config.jsx';
 
 function HeroImageWithOrbits() {
     const requestRef = useRef();
@@ -142,8 +142,8 @@ function HeroImageWithOrbits() {
             })}
             {/* Helmet Image - Responsive */}
             <img
-                src="/helmet.png"
-                alt="Formula 1 Helmet"
+                src={componentConfig.heroImageWithOrbits.imgSrc}
+                alt={componentConfig.heroImageWithOrbits.imgAlt}
                 className="w-[280px] sm:w-[400px] md:w-[500px] max-w-full h-auto relative z-10"
             />
         </div>

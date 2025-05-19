@@ -59,27 +59,21 @@ function JoinWaitlistDialog({
 
             if (response.ok) {
                 setStatus('success');
-                setStatusMessage({
-                    title: 'Added to Waitlist Successfully',
-                    description:
-                        'Thank you for joining our waitlist. We will notify you when we launch.',
-                });
+                setStatusMessage(
+                    componentConfig.joinWailist.statusMessages.success
+                );
                 setFirstName('');
                 setEmail('');
             } else if (response.status === 409) {
                 setStatus('exists');
-                setStatusMessage({
-                    title: "You're Already on Our Waitlist",
-                    description:
-                        'This email address is already registered. We will notify you when we launch.',
-                });
+                setStatusMessage(
+                    componentConfig.joinWailist.statusMessages.exists
+                );
             } else {
                 setStatus('error');
-                setStatusMessage({
-                    title: 'Oops, something went wrong!',
-                    description:
-                        'We encountered an issue adding you to our waitlist. Please try again.',
-                });
+                setStatusMessage(
+                    componentConfig.joinWailist.statusMessages.error
+                );
             }
             setIsStatusPopupOpen(true);
         } catch (error) {
@@ -87,11 +81,7 @@ function JoinWaitlistDialog({
             setIsSubmitting(false);
             setIsDialogOpen(false);
             setStatus('error');
-            setStatusMessage({
-                title: 'Oops, something went wrong!',
-                description:
-                    'We encountered an issue adding you to our waitlist. Please try again.',
-            });
+            setStatusMessage(componentConfig.joinWailist.statusMessages.error);
             setIsStatusPopupOpen(true);
         }
     };

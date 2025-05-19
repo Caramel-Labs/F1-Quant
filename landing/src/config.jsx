@@ -16,6 +16,30 @@ export const componentConfig = {
 
         buttonLabelDefault: 'Submit',
         buttonLabelSubmitting: 'Submitting...',
+
+        statusMessages: {
+            success: {
+                title: 'Added to Waitlist Successfully',
+                description:
+                    'Thank you for joining our waitlist. We will notify you when we launch.',
+            },
+            exists: {
+                title: "You're Already on Our Waitlist",
+                description:
+                    'This email address is already registered. We will notify you when we launch.',
+            },
+            error: {
+                title: 'Oops, something went wrong!',
+                description:
+                    'We encountered an issue adding you to our waitlist. Please try again.',
+            },
+        },
+    },
+
+    // Hero Image with Orbits
+    heroImageWithOrbits: {
+        imgSrc: '/helmet.png',
+        imgAlt: 'Formula 1 Helmet',
     },
 };
 
@@ -103,6 +127,8 @@ export const siteConfig = {
 
     // Footer Section
     footer: {
+        imgSrc: '/car-side.png',
+        imgAlt: 'Formula 1 Car Side View',
         company: 'Caramel Labs',
         companyLink: 'https://x.com/caramel_labs',
     },
