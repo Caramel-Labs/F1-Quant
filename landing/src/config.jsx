@@ -1,17 +1,20 @@
 const getAccentClass = (color) => `text-${color}-500`;
 
 const siteConfig = {
+    // Colors
     // NOTE these colors do not work
     // as the Tailwind compiler cannot detect dynamic styles
     accentColor: 'red',
     lightModeColor: 'white',
     darkModeColor: 'zinc',
 
+    // Header Section
     header: {
         logoImgSrc: '/logo.png',
         logoImgAlt: 'QuantF1 Logo',
     },
 
+    // Hero Section
     hero: {
         title: (
             <>
@@ -27,6 +30,7 @@ const siteConfig = {
         buttonLabel: 'Join Waitlist',
     },
 
+    // Features Section
     features: {
         title: 'Predict Like a Quant. Bet Like a Pro.',
         content:
@@ -65,12 +69,14 @@ const siteConfig = {
         ],
     },
 
+    // Hook Section
     hook: {
         title: 'Bet Before the Odds Shift',
         content:
             'In racing and betting, timing is everything. Secure early access and stay a lap ahead.',
     },
 
+    // Footer Section
     footer: {
         company: 'Caramel Labs',
         companyLink: 'https://x.com/caramel_labs',
