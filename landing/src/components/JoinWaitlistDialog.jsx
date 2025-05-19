@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import siteConfig from '../config.jsx';
 import { StatusPopup } from './StatusPopup';
 import * as Dialog from '@radix-ui/react-dialog';
+import { siteConfig, componentConfig } from '../config.jsx';
 
 function JoinWaitlistDialog({
     triggerClassName = '',
@@ -28,7 +28,7 @@ function JoinWaitlistDialog({
         e.preventDefault();
 
         if (!validateEmail(email)) {
-            setEmailError('Please enter a valid email address');
+            setEmailError(componentConfig.joinWailist.emailError);
             return;
         } else {
             setEmailError('');
@@ -38,9 +38,10 @@ function JoinWaitlistDialog({
 
         try {
             const response = await fetch(
-                `${
-                    import.meta.env.VITE_API_BASE_URL
-                }/api/prospects/addProspect`,
+                `${import.meta.env.VITE_API_BASE_URL}${
+                    siteConfig.apiEndpoints.addProspectEndpoint
+                }`,
+
                 {
                     method: 'POST',
                     headers: {
@@ -118,18 +119,21 @@ function JoinWaitlistDialog({
                         <Dialog.Title
                             className={`text-xl font-semibold mb-4 text-zinc-900 dark:text-zinc-100`}
                         >
-                            Join the Waitlist
+                            {componentConfig.joinWailist.title}
                         </Dialog.Title>
                         <Dialog.Description
                             className={`text-sm text-zinc-600 dark:text-zinc-400 mb-4`}
                         >
-                            Enter your details to get early access.
+                            {componentConfig.joinWailist.content}
                         </Dialog.Description>
                         <form onSubmit={handleSubmit} className="space-y-4">
                             <div>
                                 <input
                                     type="text"
-                                    placeholder="First name"
+                                    placeholder={
+                                        componentConfig.joinWailist
+                                            .namePlaceholder
+                                    }
                                     value={firstName}
                                     onChange={(e) =>
                                         setFirstName(e.target.value)
@@ -142,14 +146,19 @@ function JoinWaitlistDialog({
                                 <p
                                     className={`text-xs text-zinc-500 dark:text-zinc-400 mt-1`}
                                 >
-                                    We collect your name only to personalize our
-                                    communications with you.
+                                    {
+                                        componentConfig.joinWailist
+                                            .nameJustification
+                                    }
                                 </p>
                             </div>
                             <div>
                                 <input
                                     type="email"
-                                    placeholder="Email address"
+                                    placeholder={
+                                        componentConfig.joinWailist
+                                            .emailPlaceholder
+                                    }
                                     value={email}
                                     onChange={(e) => {
                                         setEmail(e.target.value);
@@ -195,10 +204,13 @@ function JoinWaitlistDialog({
                                                 d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                                             ></path>
                                         </svg>
-                                        Submitting...
+                                        {
+                                            componentConfig.joinWailist
+                                                .buttonLabelSubmitting
+                                        }
                                     </>
                                 ) : (
-                                    'Submit'
+                                    `${componentConfig.joinWailist.buttonLabelDefault}`
                                 )}
                             </button>
                         </form>

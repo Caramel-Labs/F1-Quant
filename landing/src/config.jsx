@@ -1,6 +1,31 @@
 const getAccentClass = (color) => `text-${color}-500`;
 
-const siteConfig = {
+// Component-wise Configurations
+export const componentConfig = {
+    // "Join Waitlist" Dialog
+    joinWailist: {
+        title: 'Join the Waitlist',
+        content: 'Enter your details to get early access.',
+
+        namePlaceholder: 'First name',
+        nameJustification:
+            'We collect your name only to personalize our communications with you.',
+
+        emailPlaceholder: 'Email address',
+        emailError: 'Please enter a valid email address',
+
+        buttonLabelDefault: 'Submit',
+        buttonLabelSubmitting: 'Submitting...',
+    },
+};
+
+// Site-wide Configurations
+export const siteConfig = {
+    // API Endpoints
+    apiEndpoints: {
+        addProspectEndpoint: '/api/prospects/addProspect',
+    },
+
     // Colors
     // NOTE these colors do not work
     // as the Tailwind compiler cannot detect dynamic styles
