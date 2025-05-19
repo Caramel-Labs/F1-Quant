@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from 'react';
+import siteConfig from '../config.jsx';
 
-function HelmetWithOrbits() {
+function HeroImageWithOrbits() {
     const requestRef = useRef();
     const previousTimeRef = useRef();
     const [orbitAngles, setOrbitAngles] = useState({});
@@ -26,7 +27,7 @@ function HelmetWithOrbits() {
         {
             radius: isMobile ? 120 : 220,
             dotCount: isMobile ? 8 : 12,
-            color: 'bg-red-500',
+            color: `bg-red-500`,
             size: isMobile ? 2 : 3,
             speed: 0.6,
             reverse: false,
@@ -36,7 +37,7 @@ function HelmetWithOrbits() {
         {
             radius: isMobile ? 160 : 280,
             dotCount: isMobile ? 12 : 16,
-            color: 'bg-red-400',
+            color: `bg-red-400`,
             size: isMobile ? 1.5 : 2,
             speed: 0.8,
             reverse: true,
@@ -46,7 +47,7 @@ function HelmetWithOrbits() {
         {
             radius: isMobile ? 200 : 340,
             dotCount: isMobile ? 16 : 24,
-            color: 'bg-red-300',
+            color: `bg-red-300`,
             size: isMobile ? 2 : 2.5,
             speed: 0.4,
             reverse: false,
@@ -107,7 +108,9 @@ function HelmetWithOrbits() {
             {' '}
             {/* Responsive height */}
             {/* Blurred Red Blob - Responsive */}
-            <div className="absolute w-[250px] sm:w-[350px] md:w-[450px] h-[250px] sm:h-[350px] md:h-[450px] bg-red-500 opacity-20 blur-3xl rounded-full z-0 transition-all duration-700 group-hover:scale-110 group-hover:opacity-30" />
+            <div
+                className={`absolute w-[250px] sm:w-[350px] md:w-[450px] h-[250px] sm:h-[350px] md:h-[450px] bg-red-500 opacity-20 blur-3xl rounded-full z-0 transition-all duration-700 group-hover:scale-110 group-hover:opacity-30`}
+            />
             {/* Orbital Paths */}
             {orbits.map((orbit, i) => (
                 <div
@@ -147,4 +150,4 @@ function HelmetWithOrbits() {
     );
 }
 
-export default HelmetWithOrbits;
+export default HeroImageWithOrbits;
