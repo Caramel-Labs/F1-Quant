@@ -2,7 +2,7 @@ const getAccentClass = (color) => `text-${color}-500`;
 
 // Component-wise Configurations
 export const componentConfig = {
-    // "Join Waitlist" Dialog
+    // Waitlist Dialog
     waitlistDialog: {
         title: 'Join the Waitlist',
         content: 'Enter your details to get early access.',
@@ -36,6 +36,7 @@ export const componentConfig = {
         },
     },
 
+    // Waitlist Status Popup
     waitlistStatusPopup: {
         buttonLabelOk: 'OK',
         buttonLabelClose: 'Close',
