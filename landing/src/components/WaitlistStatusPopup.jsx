@@ -1,7 +1,7 @@
 import * as Dialog from '@radix-ui/react-dialog';
-import siteConfig from '../config.jsx';
+import { siteConfig, componentConfig } from '../config.jsx';
 
-export function StatusPopup({
+export function WaitlistStatusPopup({
     isOpen,
     onOpenChange,
     status,
@@ -33,13 +33,19 @@ export function StatusPopup({
                                     onClick={() => onOpenChange(false)}
                                     className={`px-4 py-2 bg-zinc-200 dark:bg-zinc-700 text-zinc-900 dark:text-zinc-100 rounded-md hover:bg-zinc-300 dark:hover:bg-zinc-600 transition`}
                                 >
-                                    Close
+                                    {
+                                        componentConfig.waitlistStatusPopup
+                                            .buttonLabelClose
+                                    }
                                 </button>
                                 <button
                                     onClick={onTryAgain}
                                     className={`px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded-md transition`}
                                 >
-                                    Try Again
+                                    {
+                                        componentConfig.waitlistStatusPopup
+                                            .buttonLabelTryAgain
+                                    }
                                 </button>
                             </>
                         )}
@@ -49,7 +55,10 @@ export function StatusPopup({
                                 onClick={() => onOpenChange(false)}
                                 className={`px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded-md transition`}
                             >
-                                OK
+                                {
+                                    componentConfig.waitlistStatusPopup
+                                        .buttonLabelOk
+                                }
                             </button>
                         )}
                     </div>

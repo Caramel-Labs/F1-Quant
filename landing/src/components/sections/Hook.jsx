@@ -1,5 +1,5 @@
 import siteConfig from '../../config.jsx';
-import JoinWaitlistDialog from '../JoinWaitlistDialog';
+import WaitlistDialog from '../WaitlistDialog.jsx';
 
 function Hook() {
     return (
@@ -19,7 +19,7 @@ function Hook() {
             </p>
 
             {/* Join Waitlist */}
-            <JoinWaitlistDialog
+            <WaitlistDialog
                 triggerClassName={`bg-red-500 text-white text-sm sm:text-base px-4 py-2 sm:px-6 sm:py-3 rounded hover:bg-red-600 transition mx-auto`}
             />
         </section>

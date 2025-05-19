@@ -1,6 +1,6 @@
 import siteConfig from '../../config.jsx';
 import { useEffect, useState } from 'react';
-import JoinWaitlistDialog from '../JoinWaitlistDialog.jsx';
+import WaitlistDialog from '../WaitlistDialog.jsx';
 
 function Header() {
     const [scrolled, setScrolled] = useState(false);
@@ -29,7 +29,7 @@ function Header() {
             </div>
 
             {/* Join Waitlist */}
-            <JoinWaitlistDialog
+            <WaitlistDialog
                 triggerClassName={`bg-red-500 text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded hover:bg-red-600 transition text-sm sm:text-base`}
             />
         </header>

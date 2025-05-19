@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { StatusPopup } from './StatusPopup';
+import { WaitlistStatusPopup } from './WaitlistStatusPopup.jsx';
 import * as Dialog from '@radix-ui/react-dialog';
 import { siteConfig, componentConfig } from '../config.jsx';
 
-function JoinWaitlistDialog({
+function WaitlistDialog({
     triggerClassName = '',
     buttonLabel = siteConfig.hero.buttonLabel,
 }) {
@@ -28,7 +28,7 @@ function JoinWaitlistDialog({
         e.preventDefault();
 
         if (!validateEmail(email)) {
-            setEmailError(componentConfig.joinWailist.emailError);
+            setEmailError(componentConfig.waitlistDialog.emailError);
             return;
         } else {
             setEmailError('');
@@ -60,19 +60,19 @@ function JoinWaitlistDialog({
             if (response.ok) {
                 setStatus('success');
                 setStatusMessage(
-                    componentConfig.joinWailist.statusMessages.success
+                    componentConfig.waitlistDialog.statusMessages.success
                 );
                 setFirstName('');
                 setEmail('');
             } else if (response.status === 409) {
                 setStatus('exists');
                 setStatusMessage(
-                    componentConfig.joinWailist.statusMessages.exists
+                    componentConfig.waitlistDialog.statusMessages.exists
                 );
             } else {
                 setStatus('error');
                 setStatusMessage(
-                    componentConfig.joinWailist.statusMessages.error
+                    componentConfig.waitlistDialog.statusMessages.error
                 );
             }
             setIsStatusPopupOpen(true);
@@ -81,7 +81,9 @@ function JoinWaitlistDialog({
             setIsSubmitting(false);
             setIsDialogOpen(false);
             setStatus('error');
-            setStatusMessage(componentConfig.joinWailist.statusMessages.error);
+            setStatusMessage(
+                componentConfig.waitlistDialog.statusMessages.error
+            );
             setIsStatusPopupOpen(true);
         }
     };
@@ -109,19 +111,19 @@ function JoinWaitlistDialog({
                         <Dialog.Title
                             className={`text-xl font-semibold mb-4 text-zinc-900 dark:text-zinc-100`}
                         >
-                            {componentConfig.joinWailist.title}
+                            {componentConfig.waitlistDialog.title}
                         </Dialog.Title>
                         <Dialog.Description
                             className={`text-sm text-zinc-600 dark:text-zinc-400 mb-4`}
                         >
-                            {componentConfig.joinWailist.content}
+                            {componentConfig.waitlistDialog.content}
                         </Dialog.Description>
                         <form onSubmit={handleSubmit} className="space-y-4">
                             <div>
                                 <input
                                     type="text"
                                     placeholder={
-                                        componentConfig.joinWailist
+                                        componentConfig.waitlistDialog
                                             .namePlaceholder
                                     }
                                     value={firstName}
@@ -137,7 +139,7 @@ function JoinWaitlistDialog({
                                     className={`text-xs text-zinc-500 dark:text-zinc-400 mt-1`}
                                 >
                                     {
-                                        componentConfig.joinWailist
+                                        componentConfig.waitlistDialog
                                             .nameJustification
                                     }
                                 </p>
@@ -146,7 +148,7 @@ function JoinWaitlistDialog({
                                 <input
                                     type="email"
                                     placeholder={
-                                        componentConfig.joinWailist
+                                        componentConfig.waitlistDialog
                                             .emailPlaceholder
                                     }
                                     value={email}
@@ -195,12 +197,12 @@ function JoinWaitlistDialog({
                                             ></path>
                                         </svg>
                                         {
-                                            componentConfig.joinWailist
+                                            componentConfig.waitlistDialog
                                                 .buttonLabelSubmitting
                                         }
                                     </>
                                 ) : (
-                                    `${componentConfig.joinWailist.buttonLabelDefault}`
+                                    `${componentConfig.waitlistDialog.buttonLabelDefault}`
                                 )}
                             </button>
                         </form>
@@ -216,7 +218,7 @@ function JoinWaitlistDialog({
                 </Dialog.Portal>
             </Dialog.Root>
 
-            <StatusPopup
+            <WaitlistStatusPopup
                 isOpen={isStatusPopupOpen}
                 onOpenChange={setIsStatusPopupOpen}
                 status={status}
@@ -230,4 +232,4 @@ function JoinWaitlistDialog({
     );
 }
 
-export default JoinWaitlistDialog;
+export default WaitlistDialog;

@@ -1,5 +1,5 @@
 import siteConfig from '../../config.jsx';
-import JoinWaitlistDialog from '../JoinWaitlistDialog';
+import WaitlistDialog from '../WaitlistDialog.jsx';
 import HeroImageWithOrbits from '../HeroImageWithOrbits';
 
 function Hero() {
@@ -24,7 +24,7 @@ function Hero() {
 
                 {/* Join Waitlist */}
                 <div className="flex justify-center lg:justify-start">
-                    <JoinWaitlistDialog
+                    <WaitlistDialog
                         triggerClassName={`bg-red-500 text-white px-4 py-1.5 sm:px-6 sm:py-2 rounded hover:bg-red-600 transition text-sm sm:text-base`}
                     />
                 </div>

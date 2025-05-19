@@ -3,7 +3,7 @@ const getAccentClass = (color) => `text-${color}-500`;
 // Component-wise Configurations
 export const componentConfig = {
     // "Join Waitlist" Dialog
-    joinWailist: {
+    waitlistDialog: {
         title: 'Join the Waitlist',
         content: 'Enter your details to get early access.',
 
@@ -34,6 +34,12 @@ export const componentConfig = {
                     'We encountered an issue adding you to our waitlist. Please try again.',
             },
         },
+    },
+
+    waitlistStatusPopup: {
+        buttonLabelOk: 'OK',
+        buttonLabelClose: 'Close',
+        buttonLabelTryAgain: 'Try Again',
     },
 
     // Hero Image with Orbits
