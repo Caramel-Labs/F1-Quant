@@ -1,10 +1,11 @@
-import * as Dialog from '@radix-ui/react-dialog';
 import { useState } from 'react';
+import siteConfig from '../config.jsx';
 import { StatusPopup } from './StatusPopup';
+import * as Dialog from '@radix-ui/react-dialog';
 
 function JoinWaitlistDialog({
     triggerClassName = '',
-    buttonLabel = 'Join Waitlist',
+    buttonLabel = siteConfig.hero.buttonLabel,
 }) {
     const [firstName, setFirstName] = useState('');
     const [email, setEmail] = useState('');
@@ -111,13 +112,17 @@ function JoinWaitlistDialog({
                 <Dialog.Portal>
                     <Dialog.Overlay className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40" />
                     <Dialog.Content
-                        className="fixed top-1/2 left-1/2 w-[90vw] max-w-md -translate-x-1/2 -translate-y-1/2 bg-white dark:bg-zinc-900 rounded-xl p-6 shadow-lg z-50"
+                        className={`fixed top-1/2 left-1/2 w-[90vw] max-w-md -translate-x-1/2 -translate-y-1/2 bg-white dark:bg-zinc-900 rounded-xl p-6 shadow-lg z-50`}
                         onOpenAutoFocus={(e) => e.preventDefault()}
                     >
-                        <Dialog.Title className="text-xl font-semibold mb-4 text-zinc-900 dark:text-zinc-100">
+                        <Dialog.Title
+                            className={`text-xl font-semibold mb-4 text-zinc-900 dark:text-zinc-100`}
+                        >
                             Join the Waitlist
                         </Dialog.Title>
-                        <Dialog.Description className="text-sm text-zinc-600 dark:text-zinc-400 mb-4">
+                        <Dialog.Description
+                            className={`text-sm text-zinc-600 dark:text-zinc-400 mb-4`}
+                        >
                             Enter your details to get early access.
                         </Dialog.Description>
                         <form onSubmit={handleSubmit} className="space-y-4">
@@ -129,12 +134,14 @@ function JoinWaitlistDialog({
                                     onChange={(e) =>
                                         setFirstName(e.target.value)
                                     }
-                                    className="w-full p-2 border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 placeholder-zinc-500 dark:placeholder-zinc-400"
+                                    className={`w-full p-2 border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 placeholder-zinc-500 dark:placeholder-zinc-400`}
                                     autoFocus={false}
                                     required
                                     disabled={isSubmitting}
                                 />
-                                <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-1">
+                                <p
+                                    className={`text-xs text-zinc-500 dark:text-zinc-400 mt-1`}
+                                >
                                     We collect your name only to personalize our
                                     communications with you.
                                 </p>
@@ -148,26 +155,28 @@ function JoinWaitlistDialog({
                                         setEmail(e.target.value);
                                         if (emailError) setEmailError('');
                                     }}
-                                    className="w-full p-2 border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 placeholder-zinc-500 dark:placeholder-zinc-400"
+                                    className={`w-full p-2 border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 placeholder-zinc-500 dark:placeholder-zinc-400`}
                                     autoFocus={false}
                                     required
                                     disabled={isSubmitting}
                                 />
                                 {emailError && (
-                                    <p className="text-xs text-red-500 dark:text-red-400 mt-1">
+                                    <p
+                                        className={`text-xs text-red-500 dark:text-red-400 mt-1`}
+                                    >
                                         {emailError}
                                     </p>
                                 )}
                             </div>
                             <button
                                 type="submit"
-                                className="w-full bg-red-500 text-white rounded-md p-2 hover:bg-red-600 transition flex justify-center items-center"
+                                className={`w-full bg-red-500 text-white rounded-md p-2 hover:bg-red-600 transition flex justify-center items-center`}
                                 disabled={isSubmitting}
                             >
                                 {isSubmitting ? (
                                     <>
                                         <svg
-                                            className="animate-spin -ml-1 mr-2 h-4 w-4 text-white"
+                                            className={`animate-spin -ml-1 mr-2 h-4 w-4 text-white`}
                                             xmlns="http://www.w3.org/2000/svg"
                                             fill="none"
                                             viewBox="0 0 24 24"
@@ -195,7 +204,7 @@ function JoinWaitlistDialog({
                         </form>
                         <Dialog.Close asChild>
                             <button
-                                className="absolute top-3 right-3 text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300"
+                                className={`absolute top-3 right-3 text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300`}
                                 disabled={isSubmitting}
                             >
                                 ✕
