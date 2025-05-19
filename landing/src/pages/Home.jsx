@@ -1,8 +1,8 @@
-import Hero from '../../components/sections/Hero.jsx';
-import Hook from '../../components/sections/Hook.jsx';
-import Header from '../../components/sections/Header.jsx';
-import Footer from '../../components/sections/Footer.jsx';
-import Features from '../../components/sections/Features.jsx';
+import Hero from '../components/sections/Hero.jsx';
+import Hook from '../components/sections/Hook.jsx';
+import Header from '../components/sections/Header.jsx';
+import Footer from '../components/sections/Footer.jsx';
+import Features from '../components/sections/Features.jsx';
 
 function Home() {
     return (
