@@ -35,7 +35,6 @@ export const siteConfig = {
         highlighted: 'F1',
         content:
             'Turn data into strategy with cutting-edge analytics built for high-stakes F1 betting.',
-        buttonLabel: 'Join Waitlist',
     },
 
     // 3. Partners Section
@@ -122,6 +121,8 @@ export const siteConfig = {
 export const componentConfig = {
     // Waitlist Dialog
     waitlistDialog: {
+        buttonLabel: 'Join Waitlist',
+
         title: 'Join the Waitlist',
         content: 'Enter your details to get early access.',
 

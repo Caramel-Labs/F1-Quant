@@ -5,7 +5,7 @@ import { siteConfig, componentConfig } from '../config.jsx';
 
 function WaitlistDialog({
     triggerClassName = '',
-    buttonLabel = siteConfig.hero.buttonLabel,
+    buttonLabel = componentConfig.waitlistDialog.buttonLabel,
 }) {
     const [firstName, setFirstName] = useState('');
     const [email, setEmail] = useState('');
